@@ -135,6 +135,8 @@
                 messageElement.innerHTML = "Même pas vrai c'était toi le prout 💩💩💩";
             } else if (type === 'wrongSite') {
                 messageElement.innerHTML = "Euh si en fait !";
+            } else if (type === 'rentree') {
+                messageElement.innerHTML = "C'est vrai c'est ta rentrée demain ? Bonne rentrée gentille girafe ! J'espère que ce sera cool, que ton bronzage a tenu parce que c'est important d'être fraîche le jour de la rentrée et que personne remarquera que t'as un doigt tout tordu (baah degueu)";
             }
 
             messageElement.style.opacity = 1;
@@ -164,6 +166,7 @@
         <button onclick="showMessage('fear')">J'ai peur de venir</button>
         <button onclick="showMessage('prout')">T'es vraiment un gros prout d'organiser des trucs comme ça</button>
         <button onclick="showMessage('wrongSite')">Euh tu fais n'importe quoi c'était même pas le vrai site de soeur</button>
+        <button onclick="showMessage('rentree')">Eh c'est ma rentrée demain</button>
     </div>
 
     <div id="message"></div>
@@ -187,3 +190,4 @@
 
 </body>
 </html>
+
