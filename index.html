@@ -8,8 +8,8 @@
         /* Police et couleurs */
         body {
             font-family: 'Lora', serif;
-            background-color: #f5f5f5;
-            color: #333333;
+            background-color: #4B2A22; /* Marron foncé */
+            color: #FFF7E1; /* Couleur claire pour le texte */
             margin: 0;
             padding: 20px;
         }
@@ -21,7 +21,7 @@
 
         h1 {
             font-size: 24px;
-            color: #333333;
+            color: #FFF7E1; /* Couleur claire pour le titre */
         }
 
         ul {
@@ -51,8 +51,8 @@
         }
 
         button {
-            background-color: #333333;
-            color: white;
+            background-color: #FFF7E1; /* Couleur claire pour les boutons */
+            color: #4B2A22; /* Texte foncé */
             border: none;
             padding: 10px 20px;
             margin: 10px;
@@ -62,72 +62,44 @@
         }
 
         button:hover {
-            background-color: #555555;
+            background-color: #F2E1CC;
         }
 
-        /* Style des messages et animations */
+        /* Style des messages */
         #message {
             text-align: center;
             margin-top: 20px;
             font-size: 18px;
-            color: #333;
+            color: #FFF7E1;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease-in-out;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4B2A22;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 10;
         }
 
-        .smiley, .heart, .poop {
-            display: inline-block;
-            margin: 0 5px;
+        /* Animation pour faire disparaître le message */
+        .fade-in-out {
+            animation: fade 4s forwards;
         }
 
-        /* Animation for smileys */
-        .smiley {
-            font-size: 24px;
-            animation: bounce 1s infinite;
-            will-change: transform;
-        }
-
-        /* Animation for hearts */
-        .heart {
-            font-size: 24px;
-            animation: pulse 1s infinite;
-            will-change: transform;
-        }
-
-        /* Animation for poop emojis */
-        .poop {
-            font-size: 24px;
-            animation: poopBounce 1s infinite;
-            will-change: transform;
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes pulse {
+        @keyframes fade {
             0% {
-                transform: scale(1);
+                opacity: 0;
             }
-            50% {
-                transform: scale(1.2);
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
             }
             100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes poopBounce {
-            0%, 100% {
-                transform: rotate(0deg) translateY(0);
-            }
-            50% {
-                transform: rotate(20deg) translateY(-10px);
+                opacity: 0;
             }
         }
 
@@ -150,14 +122,18 @@
     <script>
         function showMessage(type) {
             var messageElement = document.getElementById('message');
+            
             if (type === 'fear') {
-                messageElement.innerHTML = "Vous n'avez rien à craindre et rien à perdre mademoiselle Julie, vous en sortirez grandie croyez-nous! <span class='smiley'>😊😊😊</span>";
+                messageElement.innerHTML = "Vous n'avez rien à craindre et rien à perdre mademoiselle Julie, vous en sortirez grandie croyez-nous!";
             } else if (type === 'excited') {
-                messageElement.innerHTML = "Oh bichette nous aussi on a hâte ! <span class='heart'>❤️❤️❤️</span>";
+                messageElement.innerHTML = "Oh bichette nous aussi on a hâte ! ❤️";
             } else if (type === 'prout') {
-                messageElement.innerHTML = "Même pas vrai c'était toi le prout <span class='poop'>💩💩💩</span>";
+                messageElement.innerHTML = "Même pas vrai c'était toi le prout 💩💩💩";
+            } else if (type === 'wrongSite') {
+                messageElement.innerHTML = "Euh si en fait !";
             }
-            messageElement.style.opacity = 1;
+
+            messageElement.classList.add('fade-in-out');
         }
     </script>
 </head>
@@ -184,6 +160,7 @@
         <button onclick="showMessage('fear')">J'ai peur de venir</button>
         <button onclick="showMessage('prout')">T'es vraiment un gros prout d'organiser des trucs comme ça</button>
         <button onclick="showMessage('excited')">J'ai hâte !</button>
+        <button onclick="showMessage('wrongSite')">Euh tu fais n'importe quoi c'était même pas le vrai site de soeur</button>
     </div>
 
     <div id="message"></div>
