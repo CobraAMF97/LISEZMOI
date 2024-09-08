@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste de Choses à Emporter</title>
     <style>
-        /* Police similaire à Soeur.fr */
+        /* Police et couleurs */
         body {
             font-family: 'Lora', serif;
             background-color: #f5f5f5;
@@ -44,6 +44,68 @@
             transform: scale(1.5);
         }
 
+        /* Style des boutons */
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #333333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555555;
+        }
+
+        /* Style des messages et animations */
+        #message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .smiley {
+            font-size: 24px;
+            animation: bounce 1s infinite;
+        }
+
+        .heart {
+            font-size: 24px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* Optimisation pour mobile */
         @media (max-width: 600px) {
             h1 {
@@ -54,14 +116,29 @@
                 padding: 10px;
                 font-size: 16px;
             }
+
+            button {
+                font-size: 14px;
+            }
         }
     </style>
+    <script>
+        function showMessage(type) {
+            var messageElement = document.getElementById('message');
+            if (type === 'fear') {
+                messageElement.innerHTML = "Vous n'avez rien à craindre et rien à perdre mademoiselle Julie, vous en sortirez grandie croyez-nous! <span class='smiley'>😊😊😊</span>";
+            } else {
+                messageElement.innerHTML = "Oh bichette nous aussi on a hâte ! <span class='heart'>❤️❤️❤️</span>";
+            }
+            messageElement.style.opacity = 1;
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Préparez-vous pour l'événement</h1>
     </header>
-    
+
     <p>Si vous vous demandez ce que vous devez emporter pour l'événement, voici la liste des indispensables :</p>
 
     <ul>
@@ -75,6 +152,12 @@
         <li><input type="checkbox">Ma serviette de plage</li>
         <li><input type="checkbox">Ma curiosité & mon courage</li>
     </ul>
+
+    <div class="buttons">
+        <button onclick="showMessage('fear')">J'ai peur de venir</button>
+        <button onclick="showMessage('excited')">J'ai hâte !</button>
+    </div>
+
+    <div id="message"></div>
 </body>
 </html>
-
