@@ -85,6 +85,11 @@
             animation: pulse 1s infinite;
         }
 
+        .poop {
+            font-size: 24px;
+            animation: poopBounce 1s infinite;
+        }
+
         @keyframes bounce {
             0%, 100% {
                 transform: translateY(0);
@@ -103,6 +108,15 @@
             }
             100% {
                 transform: scale(1);
+            }
+        }
+
+        @keyframes poopBounce {
+            0%, 100% {
+                transform: rotate(0deg) translateY(0);
+            }
+            50% {
+                transform: rotate(20deg) translateY(-10px);
             }
         }
 
@@ -127,8 +141,10 @@
             var messageElement = document.getElementById('message');
             if (type === 'fear') {
                 messageElement.innerHTML = "Vous n'avez rien à craindre et rien à perdre mademoiselle Julie, vous en sortirez grandie croyez-nous! <span class='smiley'>😊😊😊</span>";
-            } else {
+            } else if (type === 'excited') {
                 messageElement.innerHTML = "Oh bichette nous aussi on a hâte ! <span class='heart'>❤️❤️❤️</span>";
+            } else if (type === 'prout') {
+                messageElement.innerHTML = "Même pas vrai c'était toi le prout <span class='poop'>💩💩💩</span>";
             }
             messageElement.style.opacity = 1;
         }
@@ -155,6 +171,7 @@
 
     <div class="buttons">
         <button onclick="showMessage('fear')">J'ai peur de venir</button>
+        <button onclick="showMessage('prout')">T'es vraiment un gros prout d'organiser des trucs comme ça</button>
         <button onclick="showMessage('excited')">J'ai hâte !</button>
     </div>
 
