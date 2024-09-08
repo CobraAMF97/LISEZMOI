@@ -31,6 +31,7 @@
 
         li {
             background-color: #ffffff;
+            color: #333333; /* Texte noir pour la liste */
             margin: 10px 0;
             padding: 15px;
             border-radius: 8px;
@@ -122,18 +123,21 @@
     <script>
         function showMessage(type) {
             var messageElement = document.getElementById('message');
-            
+
+            // Réinitialiser l'animation en supprimant puis en réajoutant la classe
+            messageElement.classList.remove('fade-in-out');
+            void messageElement.offsetWidth; // Déclencher le recalcul de style pour réinitialiser l'animation
+            messageElement.classList.add('fade-in-out');
+
             if (type === 'fear') {
                 messageElement.innerHTML = "Vous n'avez rien à craindre et rien à perdre mademoiselle Julie, vous en sortirez grandie croyez-nous!";
-            } else if (type === 'excited') {
-                messageElement.innerHTML = "Oh bichette nous aussi on a hâte ! ❤️";
             } else if (type === 'prout') {
                 messageElement.innerHTML = "Même pas vrai c'était toi le prout 💩💩💩";
             } else if (type === 'wrongSite') {
                 messageElement.innerHTML = "Euh si en fait !";
             }
 
-            messageElement.classList.add('fade-in-out');
+            messageElement.style.opacity = 1;
         }
     </script>
 </head>
@@ -159,7 +163,6 @@
     <div class="buttons">
         <button onclick="showMessage('fear')">J'ai peur de venir</button>
         <button onclick="showMessage('prout')">T'es vraiment un gros prout d'organiser des trucs comme ça</button>
-        <button onclick="showMessage('excited')">J'ai hâte !</button>
         <button onclick="showMessage('wrongSite')">Euh tu fais n'importe quoi c'était même pas le vrai site de soeur</button>
     </div>
 
