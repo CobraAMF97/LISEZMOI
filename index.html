@@ -75,19 +75,30 @@
             transition: opacity 0.5s ease;
         }
 
+        .smiley, .heart, .poop {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* Animation for smileys */
         .smiley {
             font-size: 24px;
             animation: bounce 1s infinite;
+            will-change: transform;
         }
 
+        /* Animation for hearts */
         .heart {
             font-size: 24px;
             animation: pulse 1s infinite;
+            will-change: transform;
         }
 
+        /* Animation for poop emojis */
         .poop {
             font-size: 24px;
             animation: poopBounce 1s infinite;
+            will-change: transform;
         }
 
         @keyframes bounce {
