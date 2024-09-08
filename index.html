@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste de Choses à Emporter</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8C2SXVRJ5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Z8C2SXVRJ5');
+    </script>
+
     <style>
         /* Police et couleurs */
         body {
@@ -166,7 +177,7 @@
         <button onclick="showMessage('fear')">J'ai peur de venir</button>
         <button onclick="showMessage('prout')">T'es vraiment un gros prout d'organiser des trucs comme ça</button>
         <button onclick="showMessage('wrongSite')">Euh tu fais n'importe quoi c'était même pas le vrai site de soeur</button>
-        <button onclick="showMessage('rentree')">Eh c'était ma rentrée demain</button>
+        <button onclick="showMessage('rentree')">Eh c'est ma rentrée demain</button>
     </div>
 
     <div id="message"></div>
@@ -190,4 +201,3 @@
 
 </body>
 </html>
-
